@@ -6,7 +6,7 @@
 export function invertObj(obj) {
     const res = {};
     if (typeof obj !== 'object') {
-        return undefined;
+        return;
     }
 
     return Object.fromEntries(Object.entries(obj).map(([key,value]) => ([value,key])));
