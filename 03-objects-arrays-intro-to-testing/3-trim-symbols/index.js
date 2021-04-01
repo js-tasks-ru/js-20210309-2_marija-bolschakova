@@ -14,9 +14,9 @@ export function trimSymbols(string, size) {
   }
 
   let trimString = "";
-  const AllSymbols = string.split("");
+  const allSymbols = string.split("");
 
-  for (let symb of AllSymbols) {
+  for (let symb of allSymbols) {
     if (!trimString.endsWith(symb.repeat(size))) {
       trimString += symb;
     }
