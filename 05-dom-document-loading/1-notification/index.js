@@ -15,10 +15,8 @@ export default class NotificationMessage {
     this.render();
   }
 
-  render() {
-    const element = document.createElement('div');
-
-    element.innerHTML = `
+  get template() {
+    return `
       <div class="notification ${this.type}" style="--value:${this.duration}ms">
         <div class="timer"></div>
         <div class="inner-wrapper">
@@ -29,6 +27,13 @@ export default class NotificationMessage {
         </div>
       </div>
         `;
+  }
+
+  render() {
+    const element = document.createElement('div');
+
+    element.innerHTML = this.template;
+
     this.element = element.firstElementChild;
 
     NotificationMessage.activeMessage = this.element;
@@ -46,5 +51,4 @@ export default class NotificationMessage {
   destroy() {
     this.remove();
   }
-
 }
